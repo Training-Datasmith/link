@@ -18,7 +18,6 @@ interface EvolvableLinkProviderInterface extends LinkProviderInterface
      *
      * @param LinkInterface $link
      *   A link object that should be included in this collection.
-     * @return static
      */
     public function withLink(LinkInterface $link): static;
 
@@ -31,7 +30,6 @@ interface EvolvableLinkProviderInterface extends LinkProviderInterface
      *
      * @param LinkInterface $link
      *   The link to remove.
-     * @return static
      */
     public function withoutLink(LinkInterface $link): static;
 }
