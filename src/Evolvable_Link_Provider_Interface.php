@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Link;
 
 /**
  * An evolvable link provider value object.
  */
-interface EvolvableLinkProviderInterface extends LinkProviderInterface
+interface Evolvable_Link_Provider_Interface extends Link_Provider_Interface
 {
     /**
      * Returns an instance with the specified link included.
@@ -19,8 +18,7 @@ interface EvolvableLinkProviderInterface extends LinkProviderInterface
      * @param LinkInterface $link
      *   A link object that should be included in this collection.
      */
-    public function withLink(LinkInterface $link): static;
-
+    public function with_link(Link_Interface $link): static;
     /**
      * Returns an instance with the specifed link removed.
      *
@@ -31,5 +29,5 @@ interface EvolvableLinkProviderInterface extends LinkProviderInterface
      * @param LinkInterface $link
      *   The link to remove.
      */
-    public function withoutLink(LinkInterface $link): static;
+    public function without_link(Link_Interface $link): static;
 }

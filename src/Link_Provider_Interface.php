@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Link;
 
 /**
  * A link provider object.
  */
-interface LinkProviderInterface
+interface Link_Provider_Interface
 {
     /**
      * Returns an iterable of LinkInterface objects.
@@ -17,8 +16,7 @@ interface LinkProviderInterface
      *
      * @return iterable<LinkInterface>
      */
-    public function getLinks(): iterable;
-
+    public function get_links(): iterable;
     /**
      * Returns an iterable of LinkInterface objects that have a specific relationship.
      *
@@ -30,5 +28,5 @@ interface LinkProviderInterface
      *
      * @return iterable<LinkInterface>
      */
-    public function getLinksByRel(string $rel): iterable;
+    public function get_links_by_rel(string $rel): iterable;
 }

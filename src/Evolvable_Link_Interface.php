@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Psr\Link;
 
 /**
  * An evolvable link value object.
  */
-interface EvolvableLinkInterface extends LinkInterface
+interface Evolvable_Link_Interface extends Link_Interface
 {
     /**
      * Returns an instance with the specified href.
@@ -24,8 +23,7 @@ interface EvolvableLinkInterface extends LinkInterface
      * An implementing library SHOULD evaluate a passed object to a string
      * immediately rather than waiting for it to be returned later.
      */
-    public function withHref(string|\Stringable $href): static;
-
+    public function with_href(string|\Stringable $href): static;
     /**
      * Returns an instance with the specified relationship included.
      *
@@ -35,8 +33,7 @@ interface EvolvableLinkInterface extends LinkInterface
      * @param string $rel
      *   The relationship value to add.
      */
-    public function withRel(string $rel): static;
-
+    public function with_rel(string $rel): static;
     /**
      * Returns an instance with the specified relationship excluded.
      *
@@ -46,8 +43,7 @@ interface EvolvableLinkInterface extends LinkInterface
      * @param string $rel
      *   The relationship value to exclude.
      */
-    public function withoutRel(string $rel): static;
-
+    public function without_rel(string $rel): static;
     /**
      * Returns an instance with the specified attribute added.
      *
@@ -59,8 +55,7 @@ interface EvolvableLinkInterface extends LinkInterface
      * @param string|\Stringable|int|float|bool|array $value
      *   The value of the attribute to set.
      */
-    public function withAttribute(string $attribute, string|\Stringable|int|float|bool|array $value): static;
-
+    public function with_attribute(string $attribute, string|\Stringable|int|float|bool|array $value): static;
     /**
      * Returns an instance with the specified attribute excluded.
      *
@@ -70,5 +65,5 @@ interface EvolvableLinkInterface extends LinkInterface
      * @param string $attribute
      *   The attribute to remove.
      */
-    public function withoutAttribute(string $attribute): static;
+    public function without_attribute(string $attribute): static;
 }
