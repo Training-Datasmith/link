@@ -4,30 +4,43 @@ declare (strict_types=1);
 namespace Psr\Link;
 
 /**
- * An evolvable link provider value object.
+ * An immutable link provider collection that can produce modified copies.
+ *
+ * All with_link() and without_link() methods return a new instance, leaving
+ * the original collection unchanged, consistent with PSR-7 value-object semantics.
+ *
+ * @since 1.0
+ * @see https://www.php-fig.org/psr/psr-13/
  */
 interface Evolvable_Link_Provider_Interface extends Link_Provider_Interface
 {
     /**
-     * Returns an instance with the specified link included.
+     * Returns a new instance with the specified link added to the collection.
      *
-     * If the specified link is already present, this method MUST return normally
-     * without errors. The link is present if $link is === identical to a link
-     * object already in the collection.
+     * If the link is already present (determined by === object identity comparison,
+     * not value equality), this method MUST return normally without adding a
+     * duplicate. The method MUST NOT modify the current instance.
      *
-     * @param LinkInterface $link
-     *   A link object that should be included in this collection.
+     * @param Link_Interface $link The link object to include in the collection.
+     *
+     * @return static A new instance with $link included.
+     *
+     * @since 1.0
      */
     public function with_link(Link_Interface $link): static;
+
     /**
-     * Returns an instance with the specifed link removed.
+     * Returns a new instance with the specified link removed from the collection.
      *
-     * If the specified link is not present, this method MUST return normally
-     * without errors. The link is present if $link is === identical to a link
-     * object already in the collection.
+     * Presence is determined by === object identity, not value equality. If the
+     * link is not in the collection, this method MUST return normally without
+     * error (idempotent).
      *
-     * @param LinkInterface $link
-     *   The link to remove.
+     * @param Link_Interface $link The link object to remove from the collection.
+     *
+     * @return static A new instance with $link excluded.
+     *
+     * @since 1.0
      */
     public function without_link(Link_Interface $link): static;
 }
